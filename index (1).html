@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Yoga with BS NABI - Transform Your Life Through Yoga</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@400;600;700&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Poppins', sans-serif;
+      line-height: 1.6;
+      color: #333;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      background: white;
+      box-shadow: 0 0 50px rgba(0,0,0,0.1);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    
+    header {
+      background: linear-gradient(135deg, #00796B 0%, #004D40 100%);
+      color: white;
+      padding: 60px 30px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="white" opacity="0.1"/><circle cx="80" cy="40" r="1.5" fill="white" opacity="0.15"/><circle cx="40" cy="70" r="1" fill="white" opacity="0.1"/></svg>') repeat;
+      animation: float 20s linear infinite;
+    }
+    
+    @keyframes float {
+      0% { transform: translate(0, 0); }
+      100% { transform: translate(-50px, -50px); }
+    }
+    
+    .header-content {
+      position: relative;
+      z-index: 2;
+    }
+    
+    header h1 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 4em;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      animation: slideDown 1s ease-out;
+    }
+    
+    @keyframes slideDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+    
+    .instructor-name {
+      font-size: 2.2em;
+      font-weight: 600;
+      color: #A7FFEB;
+      margin-bottom: 15px;
+      letter-spacing: 2px;
+    }
+    
+    .tagline {
+      font-size: 1.4em;
+      font-weight: 300;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .lotus-icon {
+      font-size: 3em;
+      margin: 20px 0;
+      animation: pulse 2s ease-in-out infinite;
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    nav {
+      background: #004D40;
+      padding: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    
+    nav a {
+      color: white;
+      padding: 18px 25px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    nav a::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+      transition: left 0.5s;
+    }
+    
+    nav a:hover::before {
+      left: 100%;
+    }
+    
+    nav a:hover {
+      background: #00695C;
+      transform: translateY(-2px);
+    }
+    
+    .section {
+      padding: 60px 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    
+    .section h2 {
+      color: #00796B;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+      text-align: center;
+      position: relative;
+      padding-bottom: 15px;
+    }
+    
+    .section h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: linear-gradient(135deg, #00796B, #4DB6AC);
+      border-radius: 2px;
+    }
+    
+    .section p {
+      font-size: 1.1em;
+      line-height: 1.8;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #555;
+    }
+    
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .video-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .video-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+    }
+    
+    .video-card iframe {
+      width: 100%;
+      height: 250px;
+      border: none;
+    }
+    
+    .video-info {
+      padding: 20px;
+      text-align: center;
+    }
+    
+    .video-title {
+      font-size: 1.2em;
+      font-weight: 600;
+      color: #00796B;
+      margin-bottom: 10px;
+    }
+    
+    .video-description {
+      color: #666;
+      font-size: 0.95em;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .benefit-card {
+      background: linear-gradient(135deg, #E8F5E8 0%, #F1F8E9 100%);
+      padding: 30px;
+      border-radius: 15px;
+      text-align: center;
+      transition: transform 0.3s ease;
+      border: 1px solid #C8E6C9;
+    }
+    
+    .benefit-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .benefit-icon {
+      font-size: 3em;
+      color: #00796B;
+      margin-bottom: 20px;
+    }
+    
+    .benefit-title {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #2E7D32;
+      margin-bottom: 15px;
+    }
+    
+    .benefit-text {
+      color: #555;
+      line-height: 1.6;
+    }
+    
+    .poses-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      margin: 40px 0;
+    }
+    
+    .pose-card {
+      background: white;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+    }
+    
+    .pose-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    
+    .pose-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    
+    .pose-info {
+      padding: 25px;
+    }
+    
+    .pose-name {
+      font-size: 1.3em;
+      font-weight: 600;
+      color: #00796B;
+      margin-bottom: 10px;
+    }
+    
+    .pose-benefits {
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .contact-section {
+      background: linear-gradient(135deg, #00796B 0%, #004D40 100%);
+      color: white;
+      padding: 60px 40px;
+      text-align: center;
+      margin: 40px 0;
+      border-radius: 20px;
+    }
+    
+    .contact-section h2 {
+      color: white;
+      margin-bottom: 30px;
+    }
+    
+    .contact-section h2::after {
+      background: linear-gradient(135deg, #4DB6AC, #A7FFEB);
+    }
+    
+    .whatsapp-btn {
+      display: inline-block;
+      background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+      color: white;
+      padding: 18px 40px;
+      text-decoration: none;
+      border-radius: 50px;
+      font-size: 1.2em;
+      font-weight: 600;
+      margin: 20px 10px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(37, 211, 102, 0.3);
+    }
+    
+    .whatsapp-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
+    }
+    
+    .social-links {
+      margin: 40px 0;
+    }
+    
+    .social-links a {
+      display: inline-block;
+      width: 60px;
+      height: 60px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      margin: 0 15px;
+      color: white;
+      font-size: 1.5em;
+      text-decoration: none;
+      line-height: 60px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+    
+    .social-links a:hover {
+      background: rgba(255,255,255,0.2);
+      transform: translateY(-5px);
+    }
+    
+    footer {
+      background: #263238;
+      color: #B0BEC5;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.95em;
+    }
+    
+    .footer-content {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    
+    .specialties {
+      background: linear-gradient(135deg, #FFF3E0 0%, #FFE0B2 100%);
+      padding: 50px 40px;
+      margin: 40px 0;
+      border-radius: 20px;
+      text-align: center;
+    }
+    
+    .specialties h3 {
+      color: #E65100;
+      font-size: 2em;
+      margin-bottom: 30px;
+    }
+    
+    .specialty-tags {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+    
+    .tag {
+      background: #FF8A65;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      font-weight: 500;
+      font-size: 0.95em;
+    }
+    
+    @media (max-width: 768px) {
+      header h1 { font-size: 2.5em; }
+      .instructor-name { font-size: 1.8em; }
+      .section { padding: 40px 20px; }
+      .video-grid { grid-template-columns: 1fr; }
+      .nav-container { flex-direction: column; }
+      nav a { text-align: center; }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="header-content">
+        <h1>Yoga Journey</h1>
+        <div class="instructor-name">with BS NABI</div>
+        <div class="lotus-icon">🧘‍♀</div>
+        <p class="tagline">Transform Your Body, Mind & Spirit Through Ancient Wisdom</p>
+      </div>
+    </header>
+    
+    <nav>
+      <div class="nav-container">
+        <a href="#about">About</a>
+        <a href="#videos">Practice Videos</a>
+        <a href="#benefits">Benefits</a>
+        <a href="#poses">Yoga Poses</a>
+        <a href="#specialties">Specialties</a>
+        <a href="#contact">Connect</a>
+      </div>
+    </nav>
+
+    <div class="section" id="about">
+      <h2>Welcome to Your Yoga Journey</h2>
+      <p>Join BS NABI on a transformative journey through the ancient practice of yoga. Whether you're a complete beginner or looking to deepen your practice, discover the path to inner peace, physical strength, and mental clarity.</p>
+    </div>
+    
+    <div class="section" id="videos">
+      <h2>Practice with Me – Guided Sessions</h2>
+      <p>Follow along with these carefully crafted yoga sessions designed for all levels</p>
+      
+      <div class="video-grid">
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/v7AYKMP6rOE" title="Yoga for Beginners"></iframe>
+          <div class="video-info">
+            <div class="video-title">Gentle Yoga for Beginners</div>
+            <div class="video-description">Perfect introduction to basic poses and breathing techniques</div>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/6hZIzMpHl-c" title="20 Min Yoga Flow"></iframe>
+          <div class="video-info">
+            <div class="video-title">20-Minute Morning Flow</div>
+            <div class="video-description">Energizing sequence to start your day with intention</div>
+          </div>
+        </div>
+        
+        <div class="video-card">
+          <iframe src="https://www.youtube.com/embed/j7rKKpwdXNE" title="Quick Yoga Practice"></iframe>
+          <div class="video-info">
+            <div class="video-title">10-Minute Stress Relief</div>
+            <div class="video-description">Quick session for busy schedules and instant relaxation</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section" id="benefits">
+      <h2>Why Choose Yoga?</h2>
+      <p>Discover the life-changing benefits of regular yoga practice</p>
+      
+      <div class="benefits-grid">
+        <div class="benefit-card">
+          <div class="benefit-icon">🧠</div>
+          <div class="benefit-title">Mental Clarity</div>
+          <div class="benefit-text">Reduce stress, anxiety, and improve focus through mindful movement and meditation</div>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">💪</div>
+          <div class="benefit-title">Physical Strength</div>
+          <div class="benefit-text">Build core strength, improve flexibility, and enhance overall physical fitness</div>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">❤</div>
+          <div class="benefit-title">Emotional Balance</div>
+          <div class="benefit-text">Find inner peace, emotional stability, and develop a deeper connection with yourself</div>
+        </div>
+        
+        <div class="benefit-card">
+          <div class="benefit-icon">🌱</div>
+          <div class="benefit-title">Holistic Healing</div>
+          <div class="benefit-text">Therapeutic benefits for back pain, PTSD, and cardiovascular health</div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="section" id="poses">
+      <h2>Essential Yoga Poses</h2>
+      <p>Master these fundamental poses to build your practice</p>
+      
+      <div class="poses-gallery">
+        <div class="pose-card">
+          <img src="https://images.pexels.com/photos/8436719/pexels-photo-8436719.jpeg" alt="Legs Up Wall Pose" />
+          <div class="pose-info">
+            <div class="pose-name">Legs-Up-the-Wall Pose</div>
+            <div class="pose-benefits">Calms the nervous system, reduces anxiety, and promotes deep relaxation</div>
+          </div>
+        </div>
+        
+        <div class="pose-card">
+          <img src="https://cdn.pixabay.com/photo/2016/11/21/15/46/yoga-1842291_960_720.jpg" alt="Child's Pose" />
+          <div class="pose-info">
+            <div class="pose-name">Child's Pose (Balasana)</div>
+            <div class="pose-benefits">Gentle resting pose that aids in relaxation and stress relief</div>
+          </div>
+        </div>
+        
+        <div class="pose-card">
+          <img src="https://cdn.pixabay.com/photo/2016/11/21/16/09/yoga-1842294_960_720.jpg" alt="Bridge Pose" />
+          <div class="pose-info">
+            <div class="pose-name">Bridge Pose (Setu Bandhasana)</div>
+            <div class="pose-benefits">Strengthens the spine, opens the heart, and stimulates the thyroid</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="specialties" id="specialties">
+      <h3>My Yoga Specialties</h3>
+      <div class="specialty-tags">
+        <div class="tag">Hatha Yoga</div>
+        <div class="tag">Vinyasa Flow</div>
+        <div class="tag">Restorative Yoga</div>
+        <div class="tag">Meditation</div>
+        <div class="tag">Pranayama</div>
+        <div class="tag">Stress Relief</div>
+        <div class="tag">Beginner Friendly</div>
+        <div class="tag">Therapeutic Yoga</div>
+      </div>
+    </div>
+    
+    <div class="contact-section" id="contact">
+      <h2>Begin Your Journey Today</h2>
+      <p>Ready to transform your life through yoga? Let's connect and start your personalized practice</p>
+      
+      <a href="https://wa.me/9494019888" class="whatsapp-btn" target="_blank">
+        <i class="fab fa-whatsapp"></i> Connect on WhatsApp
+      </a>
+      
+      <div class="social-links">
+        <a href="https://mindcafe.Instagram@.com/bsnabi_yoga" target="_blank" title="Follow on Instagram">
+          <i class="fab fa-instagram"></i> Connect on Instagram
+        </a>
+        <a href="https://Nabi Nabi(nabi)facebook.com/bsnabi.yoga" target="_blank" title="Like on Facebook">
+          <i class="fab fa-facebook"></i Connect on fa-facebook
+        </a>
+        <a href="https://biochemmvs.youtube.com/bsnabiyoga" target="_blank" title="Subscribe on YouTube">
+          <i class="fab fa-youtube"></i> Connect on YouTube
+        </a>
+        <a href="mailto:bsnabi@yoga.com" target="_blank" title="Send Email">
+          <i class="fas fa-envelope"></i> Email
+        </a>
+      </div>
+    </div>
+    
+    <footer>
+      <div class="footer-content">
+        <p>&copy; 2025 Yoga with BS NABI. All rights reserved.</p>
+        <p>Bringing ancient wisdom to modern life through the transformative practice of yoga</p>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
